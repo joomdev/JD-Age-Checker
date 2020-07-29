@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>JD Age Checker</name>
+	<creationDate>July 2015</creationDate>
+	<version>1.1.1</version>
+	<author>JoomDev (Formerly GraphicAholic)</author>
+	<copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+	<license>http://www.gnu.org/copyleft/lgpl.html</license>
+	<authorEmail>info@joomdev.com</authorEmail>
+	<authorUrl>https://www.joomdev.com</authorUrl>
+
+	<description>
+		<![CDATA[
+		<div class="alert alert-info" style="font-weight: normal;">
+			<img src="../modules/mod_agechecker/images/thumbnail.jpg" alt="JD Age Checker"/>
+			<h3>JD Age Checker</h3>
+			<p>JD Age Checker Formerly known as Age Checker - Pro  from GraphicAholic is a Joomla age verification Module to verify the age of your website visitors before entering on the website.</p>
+			<p>JD Age Checker Formerly known as Age Checker-  Pro from GraphicAholic has been moved to Joomdev. <strong>Check out the <a href="https://www.joomdev.com/products/extensions/jd-age-checker" target="_blank">Announcement here.</a></strong></p>
+			<a href="https://www.joomdev.com/forum/jd-age-checker" target="_blank">Support</a> | <span>Demo</span> | <a href="https://www.joomdev.com/products/extensions/jd-age-checker" target="_blank">More Details</a>
+		</div>
+	]]>
+	</description>
+
+	<files>
+		<filename module="mod_agechecker">mod_agechecker.php</filename>
+		<folder>js</folder>
+		<folder>css</folder>
+		<folder>images</folder>
+		<filename>index.html</filename>
+		<filename>mod_agechecker.xml</filename>
+	</files>
+
+	<languages>
+		<language tag="en-GB">en-GB.mod_agechecker.ini</language>
+		<language tag="en-GB">en-GB.mod_agechecker.sys.ini</language>
+	</languages>
+
+	<updateservers>
+		<server type="extension" priority="1" name="JD Age Checker">https://joomdev.com/updates/agechecker.xml</server>
+	</updateservers>
+
+	<config>
+		<fields name="params">
+			<!-- General Settings -->
+			<fieldset name="general" group="general" label="General Settings">
+				<field name="minAge" type="text" default="18" label="MOD_AGECHECKERPRO_MINAGE" description="MOD_AGECHECKERPRO_MINAGE_DESC" />
+				<field name="redirectURL" type="list" default="1" label="MOD_AGECHECKERPRO_REDIRECTURL" description="MOD_AGECHECKERPRO_REDIRECTURL_DESC">
+					<option value="1">JNO</option>
+					<option value="2">JYES</option>
+				</field>
+				<field name="siteRedirect" type="text" default="" showon="redirectURL:2" label="MOD_AGECHECKERPRO_URLREDIRECT" description="MOD_AGECHECKERPRO_URLREDIRECT_DESC" />
+				<field name="siteWindow" type="list" showon="redirectURL:2" default="2" label="MOD_AGECHECKERPRO_WINDOWREDIRECT" description="MOD_AGECHECKERPRO_WINDOWREDIRECT_DESC">
+					<option value="1">MOD_AGECHECKERPRO_NEWWINDOW</option>
+					<option value="2">MOD_AGECHECKERPRO_SAMEWINDOW</option>
+				</field>
+				<field name="failedRedirect" type="text" default="" label="MOD_AGECHECKERPRO_URLFAILEDREDIRECT" description="MOD_AGECHECKERPRO_URLFAILEDREDIRECT_DESC" />
+				<field name="useBailout" type="list" default="true" label="MOD_AGECHECKERPRO_USEBAILOUT" description="MOD_AGECHECKERPRO_USEBAILOUT_DESC">
+					<option value="false">JNO</option>
+					<option value="true">JYES</option>
+				</field>
+				<field name="bailout" showon="useBailout:true" type="text" default="EXIT" label="MOD_AGECHECKERPRO_BAILOUTTEXT" description="MOD_AGECHECKERPRO_BAILOUTTEXT_DESC" />
+				<field name="bailoutURL" showon="useBailout:true" type="text" default="" label="MOD_AGECHECKERPRO_BAILOUTURL" description="MOD_AGECHECKERPRO_BAILOUTURL_DESC" />
+				<field name="dateFormat" type="list" default="jquery.agecheck_REVISED.js" label="MOD_AGECHECKERPRO_DATEFORMAT" description="MOD_AGECHECKERPRO_DATEFORMAT_DESC">
+					<option value="jquery.agecheck_REVISED.js">M-D-Y</option>
+					<option value="jquery.agecheck_REVISED_EUR.js">D-M-Y</option>
+				</field>
+				<field name="verificationTitle" type="text" filter="raw" default="Age Verification" label="MOD_AGECHECKERPRO_CUSTOMTITLE" description="MOD_AGECHECKERPRO_CUSTOMTITLE_DESC" />
+				<field name="verificationData" type="textarea" filter="raw" cols="50" rows="8" default="This Website requires you to be 18 years or older to enter. Please enter your Date of Birth in the fields below in order to continue" label="MOD_AGECHECKERPRO_CUSTOMBODY" description="MOD_AGECHECKERPRO_CUSTOMBODY_DESC" />
+				<field name="successData" type="textarea" filter="raw" cols="50" rows="8" default="Success!" label="MOD_AGECHECKERPRO_CUSTOMSUCCESS" description="MOD_AGECHECKERPRO_CUSTOMSUCCESS_DESC" />
+				<field name="underAgeMessage" type="textarea" filter="raw" cols="50" rows="8" default="Sorry, you are not old enough to view this site..." label="MOD_AGECHECKERPRO_UNDERAGEMESSAGE" description="MOD_AGECHECKERPRO_UNDERAGEMESSAGE_DESC" />
+				<field name="overlayColor" type="color" default="#000000" label="Overlay background color" description="Overlay background color" />
+				<field name="overlayOpacity" type="list" class="btn-group" default="1.0" label="MOD_AGECHECKERPRO_OPACITYBACKGROUND" description="MOD_AGECHECKERPRO_OPACITYBACKGROUND_DESC">
+					<option value="1.0">MOD_AGECHECKERPRO_TOTALDARKNESS</option>
+					<option value="0.9">9</option>
+					<option value="0.8">8</option>
+					<option value="0.7">7</option>
+					<option value="0.6">6</option>
+					<option value="0.5">5</option>
+					<option value="0.4">4</option>
+					<option value="0.3">3</option>
+					<option value="0.1">2</option>
+					<option value="0.0">MOD_AGECHECKERPRO_TOTALDAYLIGHT</option>
+				</field>
+				<field name="backgroundColor" type="color" default="#ffffff" label="MOD_AGECHECKERPRO_CUSTOMBACKGROUND" description="MOD_AGECHECKERPRO_CUSTOMBACKGROUND_DESC" />
+				<field name="customHeaderColor" type="color" default="#000000" label="MOD_AGECHECKERPRO_CUSTOMHEADERTEXT" description="MOD_AGECHECKERPRO_CUSTOMHEADERTEXT_DESC" />
+				<field name="customTextColor" type="color" default="#000000" label="MOD_AGECHECKERPRO_CUSTOMTEXTCOLOR" description="MOD_AGECHECKERPRO_CUSTOMTEXTCOLOR_DESC" />
+				<field name="buttonColor" type="color" default="#8EB908" label="MOD_AGECHECKERPRO_BUTTONCOLOR" description="MOD_AGECHECKERPRO_BUTTONCOLOR_DESC" />
+				<field name="buttonColorHover" type="color" default="#82A711" label="MOD_AGECHECKERPRO_BUTTONCOLORHOVER" description="MOD_AGECHECKERPRO_BUTTONCOLORHOVER_DESC" />
+				<field name="buttonTextColor" type="color" default="#FFFFFF" label="MOD_AGECHECKERPRO_BUTTONTEXTCOLOR" description="MOD_AGECHECKERPRO_BUTTONTEXTCOLOR_DESC" />
+				<field name="buttonTextShadow" type="color" default="#84A51D" label="MOD_AGECHECKERPRO_BUTTONTEXTSHADOW" description="MOD_AGECHECKERPRO_BUTTONTEXTSHADOW_DESC" />
+				<field name="successDelay" type="text" default="3000" label="MOD_AGECHECKERPRO_SUCCESSDELAY" description="MOD_AGECHECKERPRO_SUCCESSDELAY_DESC" />
+			</fieldset>
+			<!-- Custom Settings -->
+			<fieldset name="customsetting" group="customsetting" label="Custom Settings">
+				<field name="selectMonth" type="text" default="Select Month" label="MOD_AGECHECKERPRO_SELECTMONTH" description="MOD_AGECHECKERPRO_SELECTMONTH_DESC" />
+				<field name="monthJanuary" type="text" default="01" label="MOD_AGECHECKERPRO_JANUARY" description="MOD_AGECHECKERPRO_JANUARY_DESC" />
+				<field name="monthFebruary" type="text" default="02" label="MOD_AGECHECKERPRO_FEBRUARY" description="MOD_AGECHECKERPRO_FEBRUARY_DESC" />
+				<field name="monthMarch" type="text" default="03" label="MOD_AGECHECKERPRO_MARCH" description="MOD_AGECHECKERPRO_MARCH_DESC" />
+				<field name="monthApril" type="text" default="04" label="MOD_AGECHECKERPRO_APRIL" description="MOD_AGECHECKERPRO_APRIL_DESC" />
+				<field name="monthMay" type="text" default="05" label="MOD_AGECHECKERPRO_MAY" description="MOD_AGECHECKERPRO_MAY_DESC" />
+				<field name="monthJune" type="text" default="06" label="MOD_AGECHECKERPRO_JUNE" description="MOD_AGECHECKERPRO_JUNE_DESC" />
+				<field name="monthJuly" type="text" default="07" label="MOD_AGECHECKERPRO_JULY" description="MOD_AGECHECKERPRO_JULY_DESC" />
+				<field name="monthAugust" type="text" default="08" label="MOD_AGECHECKERPRO_AUGUST" description="MOD_AGECHECKERPRO_AUGUST_DESC" />
+				<field name="monthSeptember" type="text" default="09" label="MOD_AGECHECKERPRO_SEPTEMBER" description="MOD_AGECHECKERPRO_SEPTEMBER_DESC" />
+				<field name="monthOctober" type="text" default="10" label="MOD_AGECHECKERPRO_OCTOBER" description="MOD_AGECHECKERPRO_OCTOBER_DESC" />
+				<field name="monthNovember" type="text" default="11" label="MOD_AGECHECKERPRO_NOVEMBER" description="MOD_AGECHECKERPRO_NOVEMBER_DESC" />
+				<field name="monthDecember" type="text" default="12" label="MOD_AGECHECKERPRO_DECEMBER" description="MOD_AGECHECKERPRO_DECEMBER_DESC" />
+				<field name="dayText" type="text" default="Day" label="MOD_AGECHECKERPRO_DAYTEXT" description="MOD_AGECHECKERPRO_DAYTEXT_DESC" />
+				<field name="yearText" type="text" default="Year" label="MOD_AGECHECKERPRO_YEARTEXT" description="MOD_AGECHECKERPRO_YEARTEXT_DESC" />
+				<field name="submitText" type="text" default="Submit" label="MOD_AGECHECKERPRO_SUBMITTEXT" description="MOD_AGECHECKERPRO_SUBMITTEXT_DESC" />
+				<field name="dayErrorText" type="text" default="Day is invalid or empty" label="MOD_AGECHECKERPRO_DAYERROR" description="MOD_AGECHECKERPRO_DAYERROR_DESC" />
+				<field name="yearErrorText" type="text" default="Year is invalid or empty" label="MOD_AGECHECKERPRO_YEARERROR" description="MOD_AGECHECKERPRO_YEARERROR_DESC" />
+				<field type="spacer" name="myspacer" label="Custom form field settings:" />
+				<field name="buttonSpacing" type="text" default="0px" label="Space between input fields and submit buttons" description="Increase value to allow more space between submit fields and submit buttons." />
+				<field name="selectTopSpacing" type="text" default="10px" label="Top/Bottom position of Month select box" description="Increase value to push month select box down or use a negitave value to push the month select box up. This is available to assist in lining up the month select box with the day and year entry boxes." />
+				<field name="selectRightSpacing" type="text" default="5px" label="Spacing between Month and Day boxes" description="Increase value to add extra space between the Month select box and the Day field." />
+			</fieldset>
+			<!-- Advanced Settings -->
+			<fieldset name="advanced" group="advanced">
+				<field name="loadScripts" type="list" default="1" label="Load script files inline?" description="By selecting Yes, you are allowing JD Age Checker to load it's supporting script files in between the body tags and not in the head tags, where they properly belong. This option is available because other installed extension(s) on your site or your template are improperly loading the jQuery Library script.">
+					<option value="1">JNO</option>
+					<option value="2">JYES</option>
+				</field>
+				<field name="loadjQuery" showon="loadScripts:2" type="radio" class="btn-group" default="0" label="Load jQuery Library?" description="By selecting Yes, you are allowing JD Age Checker to load the jQuery Library script inline. This option was added to combat other Joomla! template or extension developers who choose not to follow the Joomla! 3.x guidelines on properly handling the jQuery Library script load. Having to add this option angers me greatly because NOW this extension is not following the Joomla! 3.x jQuery Library guidelines. By setting this option to 'Yes' just to get JD Age Checker to work is just wrong! However, because other Joomla! extension or template developers choose not to follow these quidelines, I must fight fire with more fire... Please adjust this setting at your own risk!">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="fieldMODULECLASSSUFFIX" />
+				<field name="cache" type="radio" class="btn-group" default="1" label="Caching" description="Select whether to cache the content of this module">
+					<option value="1">Use global</option>
+					<option value="0">No caching</option>
+				</field>
+				<field name="cache_time" type="text" default="900" label="Cache Time" description="The time before the module is recached" />
+				<field name="documentation" type="docs" default="900" label="" description="" />
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>
