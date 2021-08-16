@@ -1,7 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
 /*-------------------------------------------------------------------------------
-# mod_agechecker - JD Age Checker Joomla 3 module v1.1.2-PRO
+# mod_agechecker - JD Age Checker Joomla 3 module v1.1.1-PRO
 # -------------------------------------------------------------------------------
 # author    JoomDev (Formerly GraphicAholic)
 # copyright Copyright (C) 2020 Joomdev, Inc. All rights reserved.
